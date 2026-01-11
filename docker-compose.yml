@@ -1,0 +1,31 @@
+services:
+  backend:
+    build: ./backend # Path to the backend blueprint (Dockerfile)
+    ports:
+      - "5001:5001"
+    environment:
+      - PORT=5001
+      - MONGODB_URI=your_mongodb_uri_here
+      - JWT_SECRET=your_jwt_secret_here
+      - FRONTEND_URL=http://localhost:5173
+      - NODE_ENV=development
+    networks:
+      - chat-network # Connect to the private phone line
+
+  frontend:
+    build: ./frontend # Path to the frontend blueprint (Dockerfile) (userPC port : container port)
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend # Wait for backend to start first
+    networks:
+      - chat-network # Connect to the private phone line
+
+networks:
+  chat-network:
+    driver: bridge # Create a virtual private router to connect the containers (frontend and backend containers)
+
+# TO RUN THE APP:
+# 1. Fill in your environment variables above (MONGODB_URI, etc.)
+# 2. Run this command in your terminal: docker-compose up --build
+# 3. To stop the app: docker-compose down
