@@ -1,4 +1,4 @@
-import express from "express" ; 
+import express from "express";
 import helmet from "helmet";
 
 import authRouter from "./routes/auth.route.js";
@@ -35,7 +35,7 @@ app.use("/api/messages", messageRouter);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.get("(.*)", (req, res) => {
+  app.get("/:path*", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }
