@@ -17,7 +17,17 @@ dotenv.config();
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
 
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        "img-src": ["'self'", "data:", "https://res.cloudinary.com"],
+      },
+    },
+    crossOriginEmbedderPolicy: false,
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors(
