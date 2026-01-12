@@ -96,7 +96,7 @@ const MessageInput = () => {
 
             <button
               type="button"
-              className={`hidden sm:flex btn btn-circle btn-sm btn-ghost hover:bg-transparent
+              className={`flex btn btn-circle btn-sm btn-ghost hover:bg-transparent
                        ${imagePreview ? "text-emerald-500" : "text-base-content/40 hover:text-base-content/80"}`}
               onClick={() => fileInputRef.current?.click()}
             >
