@@ -21,8 +21,8 @@ const Sidebar = () => {
   if (isUsersLoading) return <SidebarSkeleton />;
 
   return (
-    <aside className="h-full w-full min-[600px]:max-lg:w-20 lg:w-72 border-r border-base-content/5 flex flex-col transition-all duration-200 bg-base-100">
-      <div className="border-b border-base-content/5 w-full p-5">
+    <aside className="h-full w-full min-[600px]:max-lg:w-20 lg:w-80 border-r border-base-content/10 flex flex-col transition-all duration-200 bg-transparent">
+      <div className="border-b border-base-content/10 w-full p-5">
         <div className="flex items-center gap-2">
           <Users className="size-6 text-primary" />
           <span className="font-medium block min-[600px]:max-lg:hidden lg:block text-base-content/80">Contacts</span>
@@ -51,9 +51,9 @@ const Sidebar = () => {
               w-full p-3 flex items-center gap-3
               min-[600px]:max-lg:w-14 min-[600px]:max-lg:h-14 min-[600px]:max-lg:mx-auto min-[600px]:max-lg:justify-center min-[600px]:max-lg:p-0
               lg:w-full lg:h-auto lg:mx-0 lg:justify-start lg:p-3
-              rounded-xl min-[600px]:max-lg:rounded-full lg:rounded-xl
-              hover:bg-base-300 transition-colors
-              ${selectedUser?._id === user._id ? "bg-base-300 ring-1 ring-base-300" : ""}
+              rounded-xl min-[600px]:max-lg:rounded-full lg:rounded-2xl
+              hover:bg-base-300/50 hover:shadow-sm transition-all duration-200 active:scale-[0.98]
+              ${selectedUser?._id === user._id ? "bg-base-300 ring-1 ring-base-content/10 shadow-sm" : ""}
             `}
           >
             <div className="relative lg:mx-0 min-[600px]:max-lg:mx-auto">
