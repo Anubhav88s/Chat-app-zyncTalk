@@ -7,8 +7,8 @@ const Navbar = () => {
 
   return (
     <header
-      className="bg-base-100/80 border-b border-base-300 fixed w-full top-0 z-40 
-    backdrop-blur-lg transition-all duration-300"
+      className="bg-base-100/80 border-b border-base-content/10 shadow-sm fixed w-full top-0 z-40 
+    backdrop-blur-xl transition-all duration-300"
     >
       <div className="container mx-auto px-4 h-16">
         <div className="flex items-center justify-between h-full">
@@ -25,7 +25,7 @@ const Navbar = () => {
             <Link
               to={"/settings"}
               className={`
-              btn btn-sm gap-2 transition-all btn-ghost hover:rounded-2xl duration-300
+              btn btn-sm gap-2 transition-all btn-ghost hover:rounded-2xl hover:bg-base-content/10 duration-200
               
               `}
             >
@@ -35,12 +35,12 @@ const Navbar = () => {
 
             {authUser && (
               <>
-                <Link to={"/profile"} className={`btn btn-sm gap-2 btn-ghost hover:rounded-2xl transition-all duration-300`}>
+                <Link to={"/profile"} className={`btn btn-sm gap-2 btn-ghost hover:bg-base-content/10 hover:rounded-2xl transition-all duration-200`}>
                   <User className="size-5" />
                   <span className="hidden sm:inline">Profile</span>
                 </Link>
 
-                <button className="flex gap-2 items-center btn btn-sm btn-ghost hover:bg-error/10 hover:text-error hover:rounded-2xl transition-all duration-300" onClick={logout}>
+                <button className="flex gap-2 items-center btn btn-sm btn-ghost hover:bg-error/10 hover:text-error hover:rounded-2xl transition-all duration-200" onClick={logout}>
                   <LogOut className="size-5" />
                   <span className="hidden sm:inline">Logout</span>
                 </button>

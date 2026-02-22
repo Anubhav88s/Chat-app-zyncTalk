@@ -34,7 +34,7 @@ const ChatContainer = () => {
     <MessageInput />
   </div>
   return (
-    <div className='flex-1 flex flex-col overflow-hidden bg-base-100/50'>
+    <div className='flex-1 flex flex-col overflow-hidden bg-base-100/50 chat-bg'>
       <ChatHeader />
 
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
@@ -63,10 +63,10 @@ const ChatContainer = () => {
               </time>
             </div>
 
-            <div className={`chat-bubble flex flex-col shadow-sm rounded-3xl pb-2
+            <div className={`flex flex-col shadow-sm transition-all duration-200 px-4 py-2.5 max-w-[80%]
               ${message.senderId === authUser._id
-                ? 'chat-bubble-primary'
-                : 'bg-base-200/30'}
+                ? 'bg-blue-500 text-white rounded-3xl rounded-tr-sm'
+                : 'bg-[#202428] text-gray-200 rounded-3xl rounded-tl-sm'}
             `}>
               {message.image && (
                 <img
